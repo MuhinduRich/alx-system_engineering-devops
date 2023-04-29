@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This script displays numbers from 1 to 20 and displays "4 and then Bad Luck from China" for the 4th loop iteration, "9 and then Bad Luck from Japan" for the 9th loop iteration, and "17 and then Bad Luck from Italy" for the 17th loop iteration.
+
+count=1
+
+while [ $count -le 20 ]
+do
+  case $count in
+    4)
+      echo "4 and then Bad Luck from China"
+      ;;
+    9)
+      echo "9 and then Bad Luck from Japan"
+      ;;
+    17)
+      echo "17 and then Bad Luck from Italy"
+      ;;
+    *)
+      echo $count
+      ;;
+  esac
+  ((count++))
+done
+
