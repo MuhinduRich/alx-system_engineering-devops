@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Read the /etc/passwd file line by line
+while read line; do
+    # Extract the username, user id, and home directory path for each user
+    username=$(echo "$line" | cut -d ':' -f1)
+    user_id=$(echo "$line" | cut -d ':' -f3)
+    home_dir=$(echo "$line" | cut -d ':' -f6)
+    
+    # Display the extracted information
+    echo "Username: $username"
+    echo "User ID: $user_id"
+    echo "Home Directory: $home_dir"
+    echo ""
+done < /etc/passwd
+
