@@ -1,33 +1,16 @@
 #!/usr/bin/env bash
-# This script displays the time for 12 hours and 59 minutes.
-
-hours=0
-
-while [ $hours -lt 13 ]
+# Display the time for 12 hours and 59 minutes
+# display hours from 0 to 12
+# display minutes from 1 to 59
+h=0
+while [ $h -le 12 ]
 do
-  if [ $hours -eq 0 ]; then
-    echo "Hour: 0"
-  else
-    echo "Hour: $hours"
-  fi
-  
-  minutes=1
-  
-  while [ $minutes -lt 60 ]
-  do
-    if [ $hours -eq 4 ] && [ $minutes -eq 1 ]; then
-      echo "$minutes: bad luck from China"
-    elif [ $hours -eq 9 ] && [ $minutes -eq 1 ]; then
-      echo "$minutes: bad luck from Japan"
-    elif [ $hours -eq 17 ] && [ $minutes -eq 1 ]; then
-      echo "$minutes: bad luck from Italy"
-    else
-      echo "$minutes"
-    fi
-    
-    ((minutes++))
-  done
-  
-  ((hours++))
+	echo "Hour: $h"
+	m=1
+	while [ $m -le 59 ]
+	do
+		echo "$m"
+		m=$(( m + 1 ))
+	done
+	h=$(( h + 1 ))
 done
-
