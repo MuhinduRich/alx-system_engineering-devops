@@ -5,15 +5,29 @@ hours=0
 
 while [ $hours -lt 13 ]
 do
+  if [ $hours -eq 0 ]; then
+    echo "Hour: 0"
+  else
+    echo "Hour: $hours"
+  fi
+  
   minutes=1
   
   while [ $minutes -lt 60 ]
   do
-    printf "%02d:%02d\n" $hours $minutes
+    if [ $hours -eq 4 ] && [ $minutes -eq 1 ]; then
+      echo "$minutes: bad luck from China"
+    elif [ $hours -eq 9 ] && [ $minutes -eq 1 ]; then
+      echo "$minutes: bad luck from Japan"
+    elif [ $hours -eq 17 ] && [ $minutes -eq 1 ]; then
+      echo "$minutes: bad luck from Italy"
+    else
+      echo "$minutes"
+    fi
     
     ((minutes++))
   done
   
   ((hours++))
-done | head -n 70
+done
 
