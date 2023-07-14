@@ -11,7 +11,7 @@ function get_record_info() {
     record_type=$(nslookup "$subdomain.$domain" | awk '/^'"$subdomain"'\./{print $4}')
 
     local destination
-    destination=$(nslookup "$subdomain.$domain" | awk '/^'"$subdomain"'\./{print $3}')
+    destination=$(nslookup "$subdomain.$domain" | awk '/^'"$subdomain"'\./{print $NF}')
 
     echo "The subdomain $subdomain is a $record_type record and points to $destination"
 }
